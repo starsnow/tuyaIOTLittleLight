@@ -44,7 +44,7 @@ unsigned char dp_array[][2] = {
   {DPID_TAP_ENABLE, DP_TYPE_BOOL},
 };
 
-unsigned char pid[] = {"zlxcsgkkmuiz06aj"}; //*********处替换成涂鸦IoT平台自己创建的产品的PID
+unsigned char pid[] = {"************"}; //*********处替换成涂鸦IoT平台自己创建的产品的PID
 unsigned char mcu_ver[] = {"1.0.0"};
 
 void setup()
@@ -62,7 +62,7 @@ void setup()
     //incoming all DPs and their types array, DP numbers
     //Enter the PID and MCU software version
     my_device.init(pid, mcu_ver);
-   // my_device.set_dp_cmd_total(dp_array, 29);
+    // my_device.set_dp_cmd_total(dp_array, 29);
     my_device.set_dp_cmd_total(dp_array, 12);
     //register DP download processing callback function
     my_device.dp_process_func_register(dp_process);
@@ -76,10 +76,9 @@ void loop()
     //Enter the connection network mode when Pin7 is pressed.
     if (digitalRead(WIFI_RECONNECT_BUTTON_PIN) == LOW)
     {
-                    digitalWrite(LED_BUILTIN, HIGH);
-
+        digitalWrite(LED_BUILTIN, HIGH);
         delay(80);
-                            digitalWrite(LED_BUILTIN, LOW);
+        digitalWrite(LED_BUILTIN, LOW);
 
         if (digitalRead(WIFI_RECONNECT_BUTTON_PIN) == LOW)
         {
@@ -120,6 +119,7 @@ unsigned char dp_process(unsigned char dpid, const unsigned char value[], unsign
     switch (dpid)
     {
     case DPID_TAP_ENABLE:
+        // 模块机械震动传感器
         digitalWrite(TRIGGER_PIN, LOW);
         delay(500);
         digitalWrite(TRIGGER_PIN, HIGH);
