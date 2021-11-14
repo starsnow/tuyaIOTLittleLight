@@ -27,13 +27,6 @@ unsigned char dp_bool_value = 0;
 long dp_value_value = 0;
 unsigned char dp_enum_value = 0;
 unsigned char dp_string_value[21] = {"0"};
-uint16_t Hue = 0; //HSV
-uint8_t Sat = 0;
-uint8_t Val = 0;
-uint8_t scene_mode = 0;
-unsigned char hex[10] = {"0"};
-//unsigned char dp_raw_value[8] = {0x01, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef};
-//int dp_fault_value = 0x01;
 
 /* Stores all DPs and their types. PS: array[][0]:dpid, array[][1]:dp type.
  *                                     dp type(TuyaDefs.h) : DP_TYPE_RAW, DP_TYPE_BOOL, DP_TYPE_VALUE, DP_TYPE_STRING, DP_TYPE_ENUM, DP_TYPE_BITMAP
